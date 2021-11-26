@@ -101,11 +101,116 @@ a{
     border: 0;
 }
 
+// css for dashboard
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100; 
+    background-color: #dfdfdf; 
+    padding: 0;
+    .nav-link{
+        font-size: 13px;
+        color: #888;
+        &.active{
+            color: $primary;
+            background-color: $white;
+            border-left: 2px solid;
+            box-shadow: 1px 3px 3px rgba(#000,0.1);
+        }
+    }
+  }
+  .sidebar-2{
+      left: auto;
+      right: 0;
+      background-color: $sidebar-2-bg;
+      
+      .card{
+          background-color: $sidebar-2-card-bg;
+          box-shadow: 0 2px 5px rgba(#000,0.2);
+          border-radius: .6rem;
+          border: none;
+          margin: 5px;
+      }
+      .card-body{
+          padding: 0.6rem;
+      } 
+      .card-title{
+          color: $primary;
+          font-size: 14px;
+          font-weight: 600;
+      }
+  }
+
+  .sidebar-sticky {
+    position: relative;
+    top: 0;
+    height: 100vh;
+    padding-top: .5rem;
+    overflow-x: hidden;
+    overflow-y: auto; 
+  }
+  
+  @supports ((position: -webkit-sticky) or (position: sticky)) {
+    .sidebar-sticky {
+      position: -webkit-sticky;
+      position: sticky;
+    }
+  } 
+  
+.db-body{
+    margin-top: 0;
+}
+.db-content{
+    h6{
+        color: $primary; 
+        margin-bottom: 20px;    
+    }
+}
+.db-navbar-toggler{
+    line-height: 2;
+}
+.db-navbar-toggler-right{
+    top: 4px;
+    right: 0; 
+}
+
+.db-card{
+    background-color: $white;
+    box-shadow: 1px 3px 4px rgba(#000,0.1);
+    padding: 8px 10px;
+    border-radius: 5px;
+    font-size: .75rem;
+    margin-bottom: 20px;
+}
+.essentials{
+    p{
+        margin-bottom: 0;
+    }
+    .icon{
+        position: relative;
+        top: 2px;
+        
+    }
+    .title{
+        display: flex;
+        color: $db-title-color;
+        margin-bottom: 3px;
+        > div{
+            flex: 1;
+        }
+    }
+}
+
+
+
 @include media-breakpoint-up(sm) { 
     body{
         text-align: left;
     }
-    .grid{
+    .gallery-grid{
         display: grid;      
         grid-template-columns:53% 1fr;
         gap: 30px;
@@ -113,4 +218,21 @@ a{
             height: 100%;
         }
     }
+    
+    
  }
+ @include media-breakpoint-up(md) { 
+    .db-content{
+        margin-left: 16.666667%;
+        margin-right: 25%;
+    }
+ }
+
+ @include media-breakpoint-down(sm) { 
+     .sidebar{
+         top: 56px;
+     }
+    .sticky-top{
+        min-height: 56px;
+    }
+  }
